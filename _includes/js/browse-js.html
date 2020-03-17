@@ -9,10 +9,10 @@ function makeCard(obj) {
     var imgSrc, thumbSrc;
     if(obj.youtube) {
       imgSrc = 'https://img.youtube.com/vi/' + obj.youtube + '/hqdefault.jpg';
-    } else if (obj.format.includes("audio")) {
-      thumbSrc = '{{ "/assets/img/audio.svg" | relative_url }}';
-    } else if (obj.format.includes("pdf")) {
-      thumbSrc = '{{ "/assets/img/pdf.svg" | relative_url }}';
+    } else if (obj.format.includes("url")) {
+      thumbSrc = '{{ "/assets/img/link.svg" | relative_url }}';
+    } else if (obj.format.includes("listing")) {
+      thumbSrc = '{{ "/assets/img/book.svg" | relative_url }}';
     } else {
       imgSrc = '{{ "/objects/" | relative_url }}' +  obj.filename;
     }  
