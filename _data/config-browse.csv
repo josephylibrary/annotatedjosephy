@@ -1,5 +1,9 @@
 field,display_name,btn,hidden
 date,Date,
 creator,Creator,
+format-original,Type of Pub,
 subject,,true
-location,,true
+controlled-vocab,,true
+annotation,,,true
+description,,,true
+placeofpub,,,true

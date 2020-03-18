@@ -1,15 +1,16 @@
 field,display_name,browse_link
 title,Title,
 creator,Creator,
-date,Date Created,
+contribution,Contribution,
+publication,In Publication,
 description,Description,
+controlled-vocab,Vocab,true
 subject,Subjects,true
-location,Location
-latitude,Latitude
-longitude,Longitude
-source,Source
-identifier,Source Identifier
+publisher,Publisher,
+location,Place of Publication
+date,Date Created,
+page,Page
+issue,Issue,
+format-original,Original Format,
 type,Type,
 format,Format,
-rights,Rights,
-rightsstatement,Rights Statement,
