@@ -39,15 +39,22 @@ layout: page
                 {% for item in inYear %}
                 <div class="col-lg-4 col-md-6">
                     <a href="{{ '/item.html' | relative_url | append: '?id=' | append: item.objectid }}" >
-                        {% if item.format contains 'listing' or item.format contains 'url' %}
+                        {% if item.imagelink %}
+                        <img class="lazyload img-thumbnail" data-src="{% if item.youtubeid %}{{ 'https://img.youtube.com/vi/' | append: item.youtubeid | append: '/hqdefault.jpg' | relative_url }}{% else %}{{ item.imagelink | prepend: '/objects/' | relative_url }}{% endif %}" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }}">
+                        {% elsif item.formatoriginal contains 'book' %}
                         <div class="card"> 
                             <div class="card-body text-center">
                                 <h4 class="card-title text-dark">{{ item.title }}</h4>
-                                <img class="lazyload img-thumbnail w-50" data-src="{% if item.format contains 'listing' %}{{ '/assets/img/book.svg' | relative_url }}{% else %}{{ '/assets/img/link.svg' | relative_url }}{% endif %}" alt="{% if item.format contains 'audio' %}audio{% else %}PDF{% endif %} filetype thumbnail">
+                                <img class="lazyload img-thumbnail w-50" data-src="{{ '/assets/icons/book.svg' | relative_url }}" alt="{% if item.format contains 'audio' %}audio{% else %}PDF{% endif %} filetype thumbnail">
                             </div>
                         </div>
                         {% else %}
-                        <img class="lazyload img-thumbnail" data-src="{% if item.youtubeid %}{{ 'https://img.youtube.com/vi/' | append: item.youtubeid | append: '/hqdefault.jpg' | relative_url }}{% else %}{{ item.filename | prepend: '/objects/' | relative_url }}{% endif %}" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }}">
+                        <div class="card"> 
+                            <div class="card-body text-center">
+                                <h4 class="card-title text-dark">{{ item.title }}</h4>
+                                <img class="lazyload img-thumbnail w-50" data-src="{{ '/assets/icons/card-text.svg' | relative_url }}" alt="{% if item.format contains 'audio' %}audio{% else %}PDF{% endif %} filetype thumbnail">
+                            </div>
+                        </div>
                         {% endif %}
                     </a>
                 </div>

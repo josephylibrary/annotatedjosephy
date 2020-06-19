@@ -6,7 +6,7 @@
     /* add item data */
     var items = { 
         {%- for item in site.data[site.metadata] -%}
-        {{ item.objectid | jsonify }} : { {% for f in fields %}{% if item[f.field] %}{{ f.field | escape | jsonify }}: {{ item[f.field] | escape | jsonify }}, {% endif %}{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}"format": {{ item.format | jsonify }}, "annotation": {{ item.annotation | jsonify }}, "filename": {{ item.filename | jsonify }} }{% unless forloop.last %}, {% endunless %}
+        {{ item.objectid | jsonify }} : { {% for f in fields %}{% if item[f.field] %}{{ f.field | escape | jsonify }}: {{ item[f.field] | escape | jsonify }}, {% endif %}{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}{% if item.imagelink %}"imagelink": {{ item.imagelink | jsonify }},{% endif %}{% if item.catalognum %}"catalognum": {{ item.catalognum | jsonify }},{% endif %}"format": {{ item.format | jsonify }}, "annotation": {{ item.annotation | jsonify }}, "filename": {{ item.filename | jsonify }} }{% unless forloop.last %}, {% endunless %}
         {% endfor %}
     };
     /* get query id from URL */
@@ -23,18 +23,27 @@
         document.getElementById("item-annotation").innerHTML = objectAnnotation;
         /* add object */ 
         var format = record.format;
+        var formatoriginal = record.formatoriginal;
         var objectLink = '{{ "/objects/" | absolute_url }}' + record.filename;
-        var objectUrl = record.filename;
+        var catalogUrl = 'https://catalog.sage.eou.edu/eg/opac/record/' + record.catalognum
+        var thumbSrc
+        if (record.imagelink) {
+      thumbSrc = '{{ "/objects/" | relative_url }}' + record.imagelink ;
+    } else if (record.formatoriginal.includes("book")) {
+      thumbSrc = '{{ "/assets/icons/book.svg" | relative_url }}"" title="article" width="150" height="150';
+    } else {
+      thumbSrc = '{{ "/assets/icons/card-text.svg" | relative_url }}"" title="article" width="150" height="150';
+    }  
         var itemImage, itemLink;
         if (format.includes('image')) {
             itemImage= '<div class="gallery-img" data-src="' + objectLink + '"><img class="img-fluid" src="' + objectLink + '" alt="' + objectTitle + '"><p><small>Click to view full screen</small></p></div>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-dark" title="Object download">Download Image</a>';
-        } else if (format.includes('listing')) {
-            itemImage= '<object data="' + objectLink + '" type="application/pdf" width="100%" height="450px"><p>The PDF is not rendering in your browser. Please use the button below to download the PDF.</p></object>';
-            itemLink= '<p class="my-4 col-12">Item is available in physical format in the Josephy Library</p>';
         } else if (format.includes('url')) {
-            itemImage= '<a href="' + objectUrl + '" target="_blank"><img class="w-50 lazyloaded"  alt="icon of link" src="/annotatedjosephy/assets/img/link.svg"></a>';
-            itemLink= '<a href="' + objectUrl + '" target="_blank" class="btn btn-dark" title="Object download">Check Item in Catalog</a>';
+            itemImage= '<a href="' + catalogUrl + '" target="_blank"><img class="w-50 lazyloaded"  alt="icon of link" src="'+ thumbSrc +'"></a>';
+            itemLink= '<a href="' + catalogUrl + '" target="_blank" class="btn btn-dark" title="Object download">Check Item in Catalog</a>';
+        } else if (format.includes('listing')) {
+            itemImage= '<a href="' + catalogUrl + '" target="_blank"><img class="w-50 lazyloaded"  alt="icon of link" src="'+ thumbSrc +'"></a>';
+            itemLink= '<p class="my-4 col-12">Item is available in physical format in the Josephy Library</p>';
         } else if (format.includes('application')) {
             itemImage= '<object data="' + objectLink + '" type="application/pdf" width="100%" height="450px"><p>The PDF is not rendering in your browser. Please use the button below to download the PDF.</p></object>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-dark" title="Object download">Download PDF</a>';

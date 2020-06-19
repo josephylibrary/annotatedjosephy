@@ -1,7 +1,7 @@
 field,display_name,btn,hidden
 date,Date,
 creator,Creator,
-format-original,Type of Pub,
+formatoriginal,Type of Pub,
 subject,,true
 controlled-vocab,,true
 annotation,,,true

@@ -28,7 +28,7 @@ featured-locations-max: 3 # set number of top locations to display if auto gener
 #
 # Featured image on About page - if left blank, CB will use image featured on the home page
 # use either an objectid (from an item in this collect), a relative location of an image in this repo, or a full url to an image elsewhere
-about-featured-image: demo_001
+about-featured-image: 
 
 ##########
 # BROWSE PAGE
@@ -52,7 +52,7 @@ subjects-stopwords: # boxers;boxing;boxer # set of subjects separated by ;, e.g.
 ##########
 # LOCATIONS PAGE
 #
-locations-fields: format-original # set the field to be featured in the cloud
+locations-fields: formatoriginal # set the field to be featured in the cloud
 locations-min: 1 # min size for subject cloud, too many terms = slow load time!
 locations-stopwords: # set of subjects separated by ; that will be removed from display, e.g. boxers;boxing
 
@@ -80,7 +80,7 @@ year-nav-increment: 5 # set increments when auto gen nav years
 #
 # add metadata fields for export in data downloads (tip: paste in first row of csv)
 # comma delimited list, reference url is automatic
-metadata-export-fields: "title,objectid,filename,creator,contribution,publication,publisher,placeofpub,date,description,annotation,controlled-vocab,subject,page,issue,latitude,longitude,collection,identifier,format-original,type,format,language,rights,rightsstatement"
+metadata-export-fields: "title,objectid,filename,creator,contribution,publication,publisher,placeofpub,date,description,annotation,controlled-vocab,subject,page,issue,latitude,longitude,collection,identifier,formatoriginal,type,format,language,rights,rightsstatement"
 # generate a facets list for given fields, comma delimited
 metadata-facets-fields: "subject,creator,format"
 
