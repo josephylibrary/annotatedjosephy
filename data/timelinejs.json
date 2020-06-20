@@ -3,7 +3,7 @@
 # Quickly curate the timeline by adding a where expression to the top line such. 
 # See https://collectionbuilder.github.io//docs/advanced.html#timelinejs for more information on how to do this.  
 ---
-{%- assign items = site.data[site.metadata] -%}
+{%- assign items = site.data[site.metadata] | where_exp: 'item','item.annotation' -%}
 {
     "title": {
         "media": {
@@ -13,13 +13,13 @@
         },
         "text": {
           "headline": {{ site.title | append: ' Timeline' | jsonify }},
-          "text": {{ site.description | jsonify }}
+          "text": "A chronological scroll through Josephy"
         }
     },
     "events": [
       {% for item in items %}{% if item.date %}{
         "media": {
-          "url": "{% if item.format contains 'audio' %}{{ '/assets/img/audio.svg' | relative_url }}{% elsif item.format contains 'application' %}{{ '/assets/img/pdf.svg' | relative_url }}{% elsif item.youtubeid %}{{ 'https://img.youtube.com/vi/' | append: item.youtubeid | append: '/maxresdefault.jpg' }}{% else %}{{ item.filename | prepend: '/objects/' | relative_url }}{% endif %}",
+          "url": "{% if item.imagelink %}{{ '/objects/' | relative_url }}{{item.imagelink}}{% else %}{{ '/assets/icons/' | relative_url }}{{item.formatoriginal | split: ';' | first }}.svg{% endif %}",
           "caption": {{ item.title | jsonify }},
           "link": "{{ '/item.html' | relative_url | append: '?id=' | append: item.objectid }}",
           "credit": "{{ site.title }}"
@@ -31,8 +31,8 @@
           "year": "{{ item.date }}"{% endif %}
         },
         "text": {
-          "headline": {{ item.title | jsonify }}{% if item.description %},
-          "text": {{ item.description | jsonify }}{% endif %}
+          "headline": {{ item.title | jsonify }}{% if item.annotation %},
+          "text": {{ item.annotation | jsonify }}{% endif %}
         }
       }{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}
     ]
