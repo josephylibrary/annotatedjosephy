@@ -10,7 +10,11 @@ function makeCard(obj) {
     if(obj.youtube) {
       imgSrc = 'https://img.youtube.com/vi/' + obj.youtube + '/hqdefault.jpg';
     } else if (obj.imagelink) {
+      if(obj.imagelink.includes('http')) {
+        thumbSrc = obj.imagelink ;
+      } else {
       thumbSrc = '{{ "/objects/" | relative_url }}' + obj.imagelink ;
+      }
     } else if (obj.formatoriginal) {
       thumbSrc = '{{ "/assets/icons/" | relative_url }}' + obj.icon + '.svg" title="article" width="150" height="150';
     } else {

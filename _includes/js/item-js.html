@@ -30,7 +30,11 @@
         var catalogUrl = 'https://catalog.sage.eou.edu/eg/opac/record/' + record.catalognum
         var thumbSrc
         if (record.imagelink) {
+            if(record.imagelink.includes('http')) {
+        thumbSrc = record.imagelink ;
+      } else {
       thumbSrc = '{{ "/objects/" | relative_url }}' + record.imagelink ;
+      }
     }  else {
       thumbSrc = '{{ "/assets/icons/" | relative_url }}'+ record.icon +'.svg" title="article" width="150" height="150';
     }  
