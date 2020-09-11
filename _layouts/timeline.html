@@ -40,7 +40,7 @@ layout: page
                 <div class="col-lg-4 col-md-6">
                     <a href="{{ '/item.html' | relative_url | append: '?id=' | append: item.objectid }}" >
                         {% if item.imagelink %}
-                        <img class="lazyload img-thumbnail" data-src="{% if item.youtubeid %}{{ 'https://img.youtube.com/vi/' | append: item.youtubeid | append: '/hqdefault.jpg' | relative_url }}{% else %}{{ item.imagelink | prepend: '/objects/' | relative_url }}{% endif %}" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }} | {{ item.annotation | escape }}">
+                        <img class="lazyload img-thumbnail" data-src="{% if item.youtubeid %}{{ 'https://img.youtube.com/vi/' | append: item.youtubeid | append: '/hqdefault.jpg' | relative_url }}{% elsif item.imagelink contains 'http' %}{{ item.imagelink}}{% else %}{{ item.imagelink | prepend: '/objects/' | relative_url }}{% endif %}" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }} | {{ item.annotation | escape }}">
                         {% elsif item.formatoriginal  %}
                         <div class="card"> 
                             <div class="card-body text-center {% if item.annotation %}border border-info{% endif %}">
