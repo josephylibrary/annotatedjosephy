@@ -3,7 +3,7 @@
 # Quickly curate the timeline by adding a where expression to the top line such. 
 # See https://collectionbuilder.github.io//docs/advanced.html#timelinejs for more information on how to do this.  
 ---
-{%- assign items = site.data[site.metadata] | where_exp: 'item','item.annotation and item.date' -%}
+{%- assign items = site.data[site.metadata] | where_exp: 'item','item.annotation' -%}
 {
     "title": {
         "media": {
