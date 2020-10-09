@@ -44,3 +44,9 @@ $theme-colors: map-merge(
 );
 
 @import "base", "theme-colors", "pages", "custom";
+
+//Home Banner Spacing
+.mb-0 {
+  margin-bottom: 20px !important;
+  margin-top: 40px !important;
+}
