@@ -45,11 +45,19 @@ $theme-colors: map-merge(
 
 @import "base", "theme-colors", "pages", "custom";
 
-//Home Banner Spacing
+/*
+
+Seth, I turned this off because it messes with bootstrap used throughout the site -- if you want to edit a single spot, do so using inline CSS -- you can also look at Boostrap's classes for margin and padding -- they are super intuitive, for instance mb-0 means margin-bottom: 0em, and pl-3 = padding-left: 3em (or something to that effect)
+
+Also, any custom additions should be added to the _sass/_custom.css file. 
+
+Home Banner Spacing
 .mb-0 {
   margin-bottom: 20px !important;
   margin-top: 40px !important;
-}
+}*
+
+/
 
 //Navbar Spacing 
 @media (min-width: 992px) {
@@ -57,4 +65,4 @@ $theme-colors: map-merge(
   padding-right: .7rem;
   padding-left: .7rem;
 }
-}
+}*/
