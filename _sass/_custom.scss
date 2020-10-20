@@ -17,3 +17,17 @@ SVG Icons - svgicons.sparkk.fr
     stroke: #4691f6;
     stroke-width: 1;
   }
+
+
+// HEAD
+#home-banner {
+  height: 242px;
+  margin-bottom: -4px !important
+}
+
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: "Karla"
+}
