@@ -22,12 +22,13 @@ SVG Icons - svgicons.sparkk.fr
 // HEAD
 #home-banner {
   height: 242px;
-  margin-bottom: -4px !important
+  margin-bottom: 2px !important
 }
-
-
-// FONTS
-@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
-h1, h2, h3, h4, h5, h6, p, a {
-  font-family: "Karla"
+.navbar-light .navbar-nav .nav-link {
+  color: #333333;
+    font-size: 12px;
+    letter-spacing: .15em;
+}
+.nav-item .h6 .small .pr-2 {
+  padding-right: 15px
 }
