@@ -7,7 +7,10 @@ layout: page
 
   {% include index/description.html %}
 
-  {% include index/featured-terms.html field="formatoriginal" title="Types" btn-color="outline-secondary" max=5 %}
+  {% include index/carousel.html %}
+
+
+  
   
   </div>
   <div class="col-md-4">  
@@ -16,6 +19,7 @@ layout: page
 
     {% include index/featured-terms.html field="subject" title="Top Subjects" btn-color="info" featured=site.data.theme.featured-subjects max=site.data.theme.featured-subjects-max %}
 
+    {% include index/featured-terms.html field="formatoriginal" title="Types" btn-color="outline-secondary" max=5 %}
   </div>
 
 </div>
