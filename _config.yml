@@ -8,7 +8,7 @@
 # URL VARIABLES
 #
 # url is your gh-pages base, following the pattern: username.github.io
-url: https://josephylibrary.github.io
+url: https://library.josephy.org
 # baseurl is your github repository's name prefixed with a /
 baseurl: /annotatedjosephy
 # location of code, the full url to your github repository
