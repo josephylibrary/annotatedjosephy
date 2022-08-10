@@ -25,9 +25,10 @@
         }else{}
         /* add object */ 
         var format = record.format;
+        var filename = record.filename;
         var formatoriginal = record.formatoriginal;
-        var objectLink = '{{ "/objects/" | absolute_url }}' + record.filename;
-        var catalogUrl = 'https://catalog.sage.eou.edu/eg/opac/record/' + record.catalognum
+        var objectLink = '{{ "/objects/" | absolute_url }}' + filename;
+        var catalogUrl = 'https://catalog.sage.eou.edu/eg/opac/record/' + record.catalognum;
         var thumbSrc
         if (record.imagelink) {
             if(record.imagelink.includes('http')) {
@@ -42,6 +43,9 @@
         if (format.includes('image')) {
             itemImage= '<div class="gallery-img" data-src="' + objectLink + '"><img class="img-fluid" src="' + objectLink + '" alt="' + objectTitle + '"><p><small>Click to view full screen</small></p></div>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-dark" title="Object download">Download Image</a>';
+        } else if (record.filename) {
+            itemImage= '<a href="' + record.filename + '" target="_blank"><img class="w-50 lazyloaded"  alt="icon of link" src="'+ thumbSrc +'"></a>';
+            itemLink= '<a href="' + record.filename + '" target="_blank" class="btn btn-dark" title="Object download">Go to Item</a>';
         } else if (format.includes('url')) {
             itemImage= '<a href="' + catalogUrl + '" target="_blank"><img class="w-50 lazyloaded"  alt="icon of link" src="'+ thumbSrc +'"></a>';
             itemLink= '<a href="' + catalogUrl + '" target="_blank" class="btn btn-dark" title="Object download">Check Item in Catalog</a>';
