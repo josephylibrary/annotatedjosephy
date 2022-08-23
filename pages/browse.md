@@ -8,7 +8,8 @@ permalink: /browse.html
 
 {% capture searchtext %}The search box on this page is very simple. It only searches for strings of text (i.e. words in a row) in the following fields for each item in the collection: 
 
-{% for f in site.data.config-browse %}-{{f.field}}
+{% for f in site.data.config-browse %}
+-{{f.field}}
 {% endfor %}. 
 
 You cannot use boolean searching (i.e. `ands` and/or `ors`) or quotation marks to refine your searches -- basically, all searches are searches for phrases that typically would be put in quotation marks in google, etc.
