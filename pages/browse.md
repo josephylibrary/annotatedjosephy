@@ -19,3 +19,5 @@ For more advanced searching capability, use the search box in the navbar above, 
 {% include feature/modal.md text=searchtext button="What does this search and how can I use it?" color="outline-dark btn-sm float-right" title="How and What This page Searches" %}
 
 ## Browse Items
+
+*You are searching under the Annotated Alvin Josephy Bibliography database. To search under the Nez Perce/Josephy Featured Archives database, please [click here](https://library.josephy.org/archives/browse.html). To search under the SAGE Josephy Library of Western History & Culture collection, which can be checked out, please [click here](https://catalog.sage.eou.edu/eg/opac/results?query=*&qtype=keyword&fg%3Amat_format=&locg=175&detail_record_view=1&_adv=1&sort=).*
