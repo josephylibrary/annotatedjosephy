@@ -16,7 +16,7 @@ You cannot use boolean searching (i.e. `ands` and/or `ors`) or quotation marks t
 
 For more advanced searching capability, use the search box in the navbar above, or go to {{'/search.html/' | relative_url }}.
 {% endcapture %}
-{% include feature/modal.md text=searchtext button="What does this search and how can I use it?" color="outline-dark btn-sm float-right" title="How and What This page Searches" %}
+{% include feature/modal.md text=searchtext button="What does this search do and how can I use it?" color="outline-dark btn-sm float-right" title="How and What This page Searches" %}
 
 ## Browse Items
 
